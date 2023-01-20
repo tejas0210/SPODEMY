@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    android:orientation="vertical"
+    tools:context=".ProfileSetup">
+
+
+        <TextView
+            android:id="@+id/txtDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter personal details"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"></TextView>
+
+        <EditText
+            android:id="@+id/edtName2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/edtbg"
+            android:hint="Name"
+            android:text=""
+            android:textSize="15dp"></EditText>
+
+        <EditText
+            android:id="@+id/edtAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/edtbg"
+            android:hint="Age"
+            android:inputType="number"
+            android:text=""
+            android:textSize="15dp"></EditText>
+
+        <EditText
+            android:id="@+id/edtHeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/edtbg"
+            android:inputType="numberDecimal"
+            android:hint="Height"
+            android:text=""
+            android:textSize="15dp"></EditText>
+
+        <EditText
+            android:id="@+id/edtWeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/edtbg"
+            android:hint="Weight"
+            android:inputType="numberDecimal"
+            android:text=""
+            android:textSize="15dp"></EditText>
+
+        <EditText
+            android:id="@+id/edtBMI"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/edtbg"
+            android:inputType="numberDecimal"
+            android:hint="BMI"
+            android:text=""
+            android:textSize="15dp"></EditText>
+
+        <TextView
+            android:id="@+id/txtAddressDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Enter address details"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            android:textStyle="bold"></TextView>
+
+        <EditText
+            android:id="@+id/edtCountry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/edtbg"
+            android:hint="Country"
+            android:text=""
+            android:textSize="15dp"></EditText>
+
+        <EditText
+            android:id="@+id/edtState"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/edtbg"
+            android:hint="State"
+            android:text=""
+            android:textSize="15dp"></EditText>
+
+        <EditText
+            android:id="@+id/edtDistrict"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/edtbg"
+            android:hint="District"
+            android:text=""
+            android:textSize="15dp"></EditText>
+
+        <TextView
+            android:id="@+id/txtGoals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Goals"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/txtWaterIntake"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Water intake"
+            android:textColor="@color/black"
+            android:textSize="15dp"></TextView>
+
+        <EditText
+            android:id="@+id/edtWaterIntake"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/edtbg"
+            android:hint="Glass of Water per day"
+            android:inputType="number"
+            android:text=""
+            android:textSize="15dp"></EditText>
+
+        <TextView
+            android:id="@+id/txtFoodTracker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Food Tracker"
+            android:textColor="@color/black"
+            android:textSize="15dp"></TextView>
+
+        <EditText
+            android:id="@+id/edtFoodTracker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edtbg"
+            android:hint="Calories intake"
+            android:text=""
+            android:textSize="15dp"></EditText>
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:layout_gravity="center_horizontal"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            android:layout_marginLeft="5dp">
+        </Button>
+
+</LinearLayout>

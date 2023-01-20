@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "7795705157",
+    "project_id": "spodemy-347b9",
+    "storage_bucket": "spodemy-347b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:7795705157:android:9eef72b709f1fde432ea2c",
+        "android_client_info": {
+          "package_name": "com.example.spodemy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "7795705157-gtnadr9o6dfgs3j8uugdmd0atadlopts.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQWVC-eD2ZS91o_P7j99bGFelnhyg1gVY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "7795705157-gtnadr9o6dfgs3j8uugdmd0atadlopts.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
