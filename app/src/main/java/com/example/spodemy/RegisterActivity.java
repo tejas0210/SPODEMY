@@ -1,6 +1,7 @@
 package com.example.spodemy;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -10,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -17,6 +20,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -31,8 +37,12 @@ public class RegisterActivity extends AppCompatActivity {
     private FirebaseDatabase database;
     private EditText edtEmail1, edtPassword1, edtFN, edtLN, edtContact, edtDOB;
     private Button btnRegister1;
+    private RadioGroup rGroup;
+    private RadioButton rBtn;
+    private String gen="";
     private int year,month,date;
 
+    int ageyear;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,10 +54,10 @@ public class RegisterActivity extends AppCompatActivity {
         edtFN = findViewById(R.id.edtFN);
         edtLN = findViewById(R.id.edtLN);
         edtDOB = findViewById(R.id.edtDOB);
-        final Calendar calender = Calendar.getInstance();
         edtDOB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Calendar calender = Calendar.getInstance();
                 year = calender.get(Calendar.YEAR);
                 month = calender.get(Calendar.MONTH);
                 date = calender.get(Calendar.DATE);
@@ -55,7 +65,8 @@ public class RegisterActivity extends AppCompatActivity {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(RegisterActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int y, int m, int d) {
-                        edtDOB.setText(SimpleDateFormat.getDateInstance().format(calender.getTime()));
+                        edtDOB.setText(d+"-"+(m+1)+"-"+y);
+                        ageyear = y;
                     }
                 },year,month,date);
                 datePickerDialog.show();
@@ -71,6 +82,29 @@ public class RegisterActivity extends AppCompatActivity {
                 register();
             }
         });
+
+        rGroup = findViewById(R.id.rGroup);
+
+
+    }
+    public void onRadioBtnClick(View v){
+        int rId = rGroup.getCheckedRadioButtonId();
+        rBtn = findViewById(rId);
+    }
+
+    public void save(){
+        String name = edtFN.getText().toString().trim()+" "+edtLN.getText().toString().trim();
+        String age = String.valueOf(year - ageyear);
+        String gender = rBtn.getText().toString();
+
+        Dataholder obj = new Dataholder(name,age,gender);
+
+        FirebaseDatabase db = FirebaseDatabase.getInstance();
+        DatabaseReference node = db.getReference("my_users");
+
+        node.child(mAuth.getUid()).setValue(obj);
+
+        Toast.makeText(RegisterActivity.this,"Saved successful",Toast.LENGTH_SHORT).show();
     }
 
     private void register(){
@@ -85,10 +119,7 @@ public class RegisterActivity extends AppCompatActivity {
 //                            values.put("DOB", edtDOB.getText().toString());
 //                            values.put("Number", edtContact.getText().toString());
 //                            ref.setValue(values);
-                                    FirebaseDatabase.getInstance().getReference().child("my_users")
-                                    .child(task.getResult().getUser().getUid())
-                                    .child("username" )
-                                    .setValue(edtFN.getText().toString()+" "+edtLN.getText().toString());
+                            save();
 
                             UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                                     .setDisplayName(edtFN.getText().toString()+" "+edtLN.getText().toString())
@@ -109,6 +140,8 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     }
                 });
+
+
     }
 
     private void transitionToProfilesetup(){

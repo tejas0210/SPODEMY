@@ -1,7 +1,15 @@
 package com.example.spodemy;
 
 public class Dataholder {
-    String Name, Age, Height, Weight, Country, State, District, WaterIntake, FoodTracker;
+    String Name, Age, Gender, Height, Weight, BMI, Country, State, District, WaterIntake, FoodTracker;
+
+    public String getGender() {
+        return Gender;
+    }
+
+    public void setGender(String gender) {
+        Gender = gender;
+    }
 
     public String getName() {
         return Name;
@@ -34,6 +42,12 @@ public class Dataholder {
     public void setWeight(String weight) {
         Weight = weight;
     }
+
+    public String getBMI() {
+        return BMI;
+    }
+    public void setBMI(String bmi) { BMI = bmi; }
+
 
     public String getCountry() {
         return Country;
@@ -75,15 +89,23 @@ public class Dataholder {
         FoodTracker = foodTracker;
     }
 
-    public Dataholder(String name, String age, String height, String weight, String country, String state, String district, String waterIntake, String foodTracker) {
+    public Dataholder(String name, String age, String height, String weight, String gender,String bmi, String country, String state, String district, String waterIntake, String foodTracker) {
         Name = name;
         Age = age;
         Height = height;
         Weight = weight;
+        Gender = gender;
+        BMI = bmi;
         Country = country;
         State = state;
         District = district;
         WaterIntake = waterIntake;
         FoodTracker = foodTracker;
+    }
+
+    public Dataholder(String name, String age,String gen){
+        Name = name;
+        Age = age;
+        Gender = gen;
     }
 }

@@ -50,25 +50,23 @@
     </TextView>
 
     <RadioGroup
+        android:id="@+id/rGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
             <RadioButton
                 android:id="@+id/rBtnMale"
                 android:text="Male"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:onClick="onRadioBtnClick">
             </RadioButton>
             <RadioButton
                 android:id="@+id/rBtnFemale"
                 android:text="Female"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:onClick="onRadioBtnClick">
             </RadioButton>
-        </LinearLayout>
     </RadioGroup>
 
     <EditText
